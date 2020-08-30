@@ -1,3 +1,8 @@
+variable "enable_backups" {
+  type    = bool
+  default = true
+}
+
 variable "rancher_host_sku" {
   type    = string
   default = "cpx21"
@@ -6,6 +11,11 @@ variable "rancher_host_sku" {
 variable "rancher_host_os" {
   type    = string
   default = "debian-10"
+}
+
+variable "location" {
+  type    = string
+  default = "nbg1"
 }
 
 variable "dns_zone" {
@@ -32,4 +42,5 @@ variable "path_to_private_key" {
   type    = string
   default = "~/.ssh/id_rsa"
 }
+
 
