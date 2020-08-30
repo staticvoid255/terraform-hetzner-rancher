@@ -4,7 +4,7 @@ data "hetznerdns_zone" "dns_zone" {
 
 resource "hetznerdns_record" "web" {
     depends_on = [hcloud_server.rancher_host]
-    
+
     zone_id = data.hetznerdns_zone.dns_zone.id
     name = var.rancher_host_name
     value = hcloud_server.rancher_host.ipv4_address
@@ -34,6 +34,6 @@ resource "hcloud_network_subnet" "rancher_cluster_subnet" {
 }
 
 resource "hcloud_server_network" "rancher_host_subnet_assignment" {
-    server_id = "${hcloud_server.rancher_host.id}"
-    subnet_id = "${hcloud_network_subnet.rancher_cluster_subnet.id}"
+    server_id = hcloud_server.rancher_host.id
+    subnet_id = hcloud_network_subnet.rancher_cluster_subnet.id
 }
