@@ -13,25 +13,8 @@ resource "hcloud_server" "rancher_host" {
     }
 
     provisioner "remote-exec" {
-        inline = ["echo 'got here'"]
-    }
-
-    provisioner "remote-exec" {
         inline = ["sudo cloud-init status --wait"]
     }
-}
-
-resource "hcloud_server_network" "rancher_host_network_assignment" {
-  server_id = "${hcloud_server.rancher_host.id}"
-  network_id = "${hcloud_network.rancher_primary_network.id}"
-}
-
-resource "hcloud_rdns" "rancher_host_dns_config" {
-    depends_on      = [hcloud_server.rancher_host]
-
-    server_id       = hcloud_server.rancher_host.id
-    ip_address      = hcloud_server.rancher_host.ipv4_address
-    dns_ptr         = var.rancher_host_name
 }
 
 resource "null_resource" "rancher_host" {

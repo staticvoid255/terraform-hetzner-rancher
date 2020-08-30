@@ -8,8 +8,14 @@ variable "rancher_host_os" {
   default = "debian-10"
 }
 
+variable "dns_zone" {
+  type    = string
+  default = "example.com"
+}
+
 variable "rancher_host_name" {
   type    = string
+  default = "rancher" # i.e. rancher.example.com
 }
 
 variable "rancher_version_tag" {
