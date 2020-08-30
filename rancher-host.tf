@@ -3,7 +3,7 @@ resource "hcloud_server" "rancher_host" {
     server_type   = var.rancher_host_sku
     image         = var.rancher_host_os
     ssh_keys      = [hcloud_ssh_key.root.name]
-    user_data     = templatefile("./setup.sh.tmpl", {rancher_version_tag = var.rancher_version_tag, domain = format("%s.%s", var.rancher_host_name, var.dns_zone)})
+    user_data     = templatefile("./setup.sh.tmpl", {rancher_version_tag = var.rancher_version_tag, domain = local.rancher_api_url})
 
     connection {
         type           = "ssh"

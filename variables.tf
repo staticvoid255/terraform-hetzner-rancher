@@ -33,6 +33,15 @@ variable "rancher_version_tag" {
   default = "v2.4.5"
 }
 
+variable "rancher_admin_password" {
+  type    = string
+}
+
+variable "hetzner_docker_machine_driver_version" {
+  type    = string
+  default = "2.1.0"
+}
+
 variable "path_to_public_key" {
   type    = string
   default = "~/.ssh/id_rsa.pub"
