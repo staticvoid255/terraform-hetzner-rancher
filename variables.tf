@@ -15,7 +15,7 @@ variable "dns_zone" {
 
 variable "rancher_host_name" {
   type    = string
-  default = "rancher" # i.e. rancher.example.com
+  default = "rancher" # concatenated with dns_zone to rancher.example.com
 }
 
 variable "rancher_version_tag" {

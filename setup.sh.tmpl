@@ -20,4 +20,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 sudo apt update
 sudo apt install -y docker-ce
 
+sudo docker create --name rancher-data rancher/rancher:${rancher_version_tag}
+sudo docker run -d --volumes-from rancher-data --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:${rancher_version_tag} --acme-domain ${domain}
+
 exit 0
