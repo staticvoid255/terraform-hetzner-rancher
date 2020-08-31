@@ -2,6 +2,13 @@ resource "rancher2_bootstrap" "admin" {
     depends_on = [null_resource.rancher_await_readiness]
     provider = rancher2.bootstrap
 
+    connection {
+        type           = "ssh"
+        host           = hcloud_server.rancher_host.ipv4_address
+        user           = "root"
+        private_key    = file(var.path_to_private_key)
+    }
+
     password = var.rancher_admin_password
     telemetry = false
 }
@@ -9,6 +16,13 @@ resource "rancher2_bootstrap" "admin" {
 resource "rancher2_node_driver" "hcloud_node_driver" {
     depends_on = [null_resource.rancher_await_readiness]
     provider = rancher2.admin
+
+    connection {
+        type           = "ssh"
+        host           = hcloud_server.rancher_host.ipv4_address
+        user           = "root"
+        private_key    = file(var.path_to_private_key)
+    }
 
     active = true
     builtin = false

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-until $(curl --output /dev/null --silent --head --fail ${domain}); do 
-    printf '.'
-    sleep 5
+until $(curl --output /dev/null --silent --head --fail ${rancher_api_url}); do 
+    printf "Waiting for Rancher to become available..."
+    sleep 10
 done

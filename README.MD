@@ -3,7 +3,7 @@
 terraform-hetzner-rancher is a *nearly* production-ready Terraform module allowing for easy deployment of a single-node Rancher installation
 on Hetzner Cloud with private cluster networking, SSL support, and provider integrations including:
 * Hetzner Node Driver (https://github.com/mxschmitt/ui-driver-hetzner)
-* TODO: Hetzner CSI Driver https://github.com/hetznercloud/csi-driver
+* TODO: Hetzner CSI Driver (https://github.com/hetznercloud/csi-driver)
 * Rancher authentication bootstrapping
 
 Comes with the totally non-legally binding promise of being one of the the cheapest ways to run production-ready Kubernetes

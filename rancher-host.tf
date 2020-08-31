@@ -3,7 +3,7 @@ resource "hcloud_server" "rancher_host" {
     server_type   = var.rancher_host_sku
     image         = var.rancher_host_os
     ssh_keys      = [hcloud_ssh_key.root.name]
-    user_data     = templatefile("./setup.sh.tmpl", {rancher_version_tag = var.rancher_version_tag, domain = local.rancher_api_url})
+    user_data     = templatefile("./setup.sh.tmpl", {rancher_version_tag = var.rancher_version_tag, acme_domain = format("%s.%s", var.rancher_host_name, var.dns_zone)})
 
     connection {
         type           = "ssh"
@@ -21,7 +21,7 @@ resource "hcloud_server" "rancher_host" {
 resource "null_resource" "rancher_await_readiness" {
     depends_on = [hcloud_server.rancher_host, hetznerdns_record.web]
 
-    provisioner "local-exec" {
-        command = templatefile("./await-rancher-readiness.sh.tmpl", {domain = local.rancher_api_url})
+    provisioner "remote-exec" {
+        inline = ["${templatefile("./await-rancher-readiness.sh.tmpl", {rancher_api_url = local.rancher_api_url})}"]
     }
 }
