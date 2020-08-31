@@ -9,6 +9,8 @@ on Hetzner Cloud with private cluster networking, SSL support, and provider inte
 Comes with the totally non-legally binding promise of being one of the the cheapest ways to run production-ready Kubernetes
 ~10x cheaper than Azure
 ~5x cheaper than DigitalOcean
+Great for Dev environments where high-availability is a low priority, allowing you to quickly and cheaply stand up environments
+and take advantage of Rancher's extensive application catalog with full Helm3 support.
 
 ## How to use
 Ensure you have a DNS zone set up in the Hetzner DNS console for your target domain e.g. example.com, then cd to the project
