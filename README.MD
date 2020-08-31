@@ -24,14 +24,15 @@ Run the plan, replacing inline parameters wit your own values. This is the bare 
 ```bash
 terraform apply -var="hcloud_token=<YOUR.TOKEN>" -var="<YOUR.DNS_TOKEN>" -var="dns_zone=<EXAMPLE.COM>" -var="rancher_host_name=rancher" -var="enable_backups=true"
 ```
+Rancher will now be available at rancher.<EXAMPLE.COM>
 Destroy with:
 ```bash
 terraform destroy
 ```
 
-Your project will now be available at rancher.<EXAMPLE.COM>
 
 # TODO:
+* Add outputs (highest priority)
 * Enable High-Availability
 * Add VPN support and improve authentication bootstrapping
 * Hetzner CSI Driver integration
