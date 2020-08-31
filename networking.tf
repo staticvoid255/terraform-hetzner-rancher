@@ -9,7 +9,7 @@ resource "hetznerdns_record" "web" {
     name = var.rancher_host_name
     value = hcloud_server.rancher_host.ipv4_address
     type = "A"
-    ttl= 30
+    ttl= 1
 }
 
 resource "hcloud_network" "rancher_primary_network" {
