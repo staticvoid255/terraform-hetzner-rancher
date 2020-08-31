@@ -6,6 +6,10 @@ on Hetzner Cloud with private cluster networking, SSL support, and provider inte
 * TODO: Hetzner CSI Driver https://github.com/hetznercloud/csi-driver
 * Rancher authentication bootstrapping
 
+Comes with the totally non-legally binding promise of being one of the the cheapest ways to run production-ready Kubernetes
+~10x cheaper than Azure
+~5x cheaper than DigitalOcean
+
 # How to use
 ```bash
 terraform init
