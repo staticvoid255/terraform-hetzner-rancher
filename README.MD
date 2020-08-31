@@ -11,20 +11,25 @@ Comes with the totally non-legally binding promise of being one of the the cheap
 ~5x cheaper than DigitalOcean
 
 # How to use
+Ensure you have a DNS zone set up in the Hetzner DNS console for your target domain e.g. example.com, then cd to the project
+clone directory and run:
 ```bash
 terraform init
 ```
+Review the execution plan with:
 ```bash
 terraform plan
 ```
+Run the plan, replacing inline parameters wit your own values. This is the bare minimum required to set up Rancher, for other parameters see the variables file:
 ```bash
-terraform apply -var="hcloud_token=<YOUR.TOKEN>" -var="<YOUR.DNS_TOKEN>" -var="dns_zone=<EXAMPLE.COM>" -var="rancher_host_name=rancher" -var="enable_backups=false"
+terraform apply -var="hcloud_token=<YOUR.TOKEN>" -var="<YOUR.DNS_TOKEN>" -var="dns_zone=<EXAMPLE.COM>" -var="rancher_host_name=rancher" -var="enable_backups=true"
 ```
+Destroy with:
 ```bash
 terraform destroy
 ```
 
-Your project will now be running 
+Your project will now be available at rancher.<EXAMPLE.COM>
 
 # TODO:
 * Enable High-Availability
